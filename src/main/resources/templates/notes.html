@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Notes</title>
+    </head>
+    <body>
+
+        <div th:if="${session.user}">
+        <h1>Your notes</h1>
+
+        <form th:action="@{/notes/{id}/addNote (id=${session.user.id})}" method="GET">
+            <button type="submit">Add a new note!</button>
+        </form>
+        <form action="/logout" method="GET">
+            <button type="submit">Logout</button>
+        </form>
+        <ul>
+            <li th:each="note:${notes}">
+                <label>Note:</label>
+                <span th:text="${note.text}"/><br/>
+                <label>Created:</label>
+                <span th:text="${note.date}"/><br/><br/>
+            </li>
+        </ul>
+
+        </div>
+        <div th:unless="${session.user}">
+            <h1>Log in to view your notes!</h1>
+        </div>
+    </body>
+</html>
