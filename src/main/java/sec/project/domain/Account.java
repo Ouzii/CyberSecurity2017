@@ -23,4 +23,5 @@ public class Account extends AbstractPersistable<Long> {
     private String username, password;
     @OneToMany(mappedBy = "owner")
     private List<Note> notes;
+    private boolean admin;
 }

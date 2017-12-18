@@ -11,9 +11,17 @@
         <form th:action="@{/notes/{id}/addNote (id=${session.user.id})}" method="GET">
             <button type="submit">Add a new note!</button>
         </form>
+        <form th:action="@{/{id}/changePassword (id=${session.user.id})}" method="GET">
+            <button type="submit">Change your password</button>
+        </form>
         <form action="/logout" method="GET">
             <button type="submit">Logout</button>
         </form>
+        <div th:if="${session.user.admin}">
+            <form action="/moderator" method="GET">
+                <input type="submit" value="Moderator"/>
+            </form>
+        </div>
         <ul>
             <li th:each="note:${notes}">
                 <label>Note:</label>
@@ -27,5 +35,7 @@
         <div th:unless="${session.user}">
             <h1>Log in to view your notes!</h1>
         </div>
+        
+        <a href="/emptyDatabase" hidden="hidden">Empty database</a>
     </body>
 </html>
