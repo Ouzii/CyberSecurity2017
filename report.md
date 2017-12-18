@@ -81,7 +81,7 @@ Steps to reproduce:
 4. Make a new account, any password and username will do (given the username is not already in use)
 5. Log in with your newly made account (registering should redirect you to login screen)
 6. Open element inspector (F12)
-7. Find hidden <a href>-element and reveal it (double click on the hidden=”hidden” field and delete the text, then press enter)
+7. Find hidden link-element and reveal it (double click on the hidden=”hidden” field and delete the text, then press enter)
 8. Click the revealed link
 9. You have now cleared the database of all data
 
